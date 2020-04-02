@@ -8,7 +8,7 @@ $(document).ready(function(){
   $(".prev").click(preV2);
 
   // setto azione su dots
-  $(".navigation_dots i").click(dotsNav)
+  $(".navigation_dots i").click(dotsNav2)
 
   // navigazione  tramite tastiera
   $(document).keypress(keymove);
@@ -87,7 +87,7 @@ $(document).ready(function(){
       slideAct.next().addClass("active");
       slideAct.next().animate({
         width : 500
-      },1000)
+      },1000);
     });
     dotAct.removeClass("active");
     dotAct.next().addClass("active");
@@ -126,20 +126,43 @@ $(document).ready(function(){
     dotAct.prev().addClass("active");
 
   };
-  // keynav con animazione
-  // function dotsNav(){
-  //   var slide = $(".slide");
-  //   var active = $(".active");
-  //   var circle = $(".fa-circle");
-  //   active.removeClass("active");
-  //   $(this).addClass("active");
-  //   for (var i = 0; i < circle.length; i++) {
-  //     if (circle.eq(i).hasClass("active")) {
-  //       $(slide.eq(i)).addClass("active")
-  //     }
-  //   };
-  // };
-
-
+  // dotnav con animazione
+  function dotsNav2(){
+    var slideAct = $(".slide.active");
+    var slide = $(".slide");
+    var circle = $(".fa-circle");
+    var circleAct = $(".fa-circle.active");
+    circleAct.removeClass("active");
+    $(this).addClass("active");
+    slide.animate({
+      width: 0
+    },1000,function(){
+      slide.removeClass("active");
+      slide.css("display","none");
+      // aggiungo la condizione lorda sperando che risolvo il problema del caricamento ritardato ma nulla
+      // si aggiunge un display none su html in style, ma non glie lo dico io
+      // cerco di compensare aggiungendo dinamicamente il comando in html ma è peggio dei cavalli pezzati
+      var condizionelorda;
+      for (var i = 0; i < circle.length; i++) {
+        if (circle.eq(i).hasClass("active")) {
+          $(slide.eq(i)).css("display", "flex")
+          $(slide.eq(i)).addClass("active");
+          condizionelorda = i
+        }
+      }
+      $(slide.eq(condizionelorda)).animate({
+        width: 500
+      },400);
+    })
+  };
+  // keymove animato
+  function keymove(x){
+    if ( x.which == 100) {
+      nexT2()
+    }
+    if ( x.which == 97) {
+      preV2()
+    }
+  }
 
 });
