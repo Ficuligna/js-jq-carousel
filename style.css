@@ -14,7 +14,7 @@
   flex-wrap: wrap;
 }
 .slide{
-  width: 500px;
+  width: 0px;
   height: 300px;
   background-color: green;
   justify-content: center;
@@ -37,7 +37,13 @@
   opacity: 1;
 }
 
-
+.slide.first{
+  width: 500px;
+}
 
 
 /* cominciamo */
+.transition{
+  transition: 1s;
+  transform: translate(2000px,0);
+}
