@@ -10,6 +10,8 @@ $(document).ready(function(){
   // setto azione su dots
   $(".navigation_dots i").click(dotsNav)
 
+  // navigazione  tramite tastiera
+  $(document).keypress(keymove);
 
 
 
@@ -37,6 +39,7 @@ $(document).ready(function(){
     active.removeClass("active");
     active.prev().addClass("active");
   };
+
   // navigazione tramite navigation_dots
   function dotsNav(){
     var slide = $(".slide");
@@ -50,5 +53,14 @@ $(document).ready(function(){
       }
     };
   };
-
+  
+  //navigazione tramite keypress
+  function keymove(x){
+    if ( x.which == 100) {
+      nexT()
+    }
+    if ( x.which == 97) {
+      preV()
+    }
+  }
 });
