@@ -1,0 +1,43 @@
+/* GENERALI */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.carousel{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+.slide{
+  width: 500px;
+  height: 300px;
+  background-color: green;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.fa-circle{
+  opacity: 0.5;
+}
+.arrow i {
+  font-size: 40px;
+}
+.navigation_dots {
+  text-align: center;
+  width: 100%;
+}
+
+.active{
+  display: flex;
+  opacity: 1;
+}
+
+
+
+
+/* cominciamo */
