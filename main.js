@@ -79,7 +79,7 @@ $(document).ready(function(){
     dotAct.removeClass("active");
     $(".fa-circle.first").addClass("active");
 
-    }
+  }else {
     $(slideAct).animate({
       width: 0
     },1000,function(){
@@ -91,6 +91,8 @@ $(document).ready(function(){
     });
     dotAct.removeClass("active");
     dotAct.next().addClass("active");
+
+  }
 
   };
 
@@ -112,7 +114,7 @@ $(document).ready(function(){
     dotAct.removeClass("active");
     $(".fa-circle.last").addClass("active");
 
-    }
+  }else {
     $(slideAct).animate({
       width: 0
     },1000,function(){
@@ -124,6 +126,7 @@ $(document).ready(function(){
     });
     dotAct.removeClass("active");
     dotAct.prev().addClass("active");
+  }
 
   };
   // dotnav con animazione
@@ -134,18 +137,18 @@ $(document).ready(function(){
     var circleAct = $(".fa-circle.active");
     circleAct.removeClass("active");
     $(this).addClass("active");
-    slide.animate({
+    $(slideAct).animate({
       width: 0
     },1000,function(){
       slide.removeClass("active");
-      slide.css("display","none");
+      // slide.css("display","none");
       // aggiungo la condizione lorda sperando che risolvo il problema del caricamento ritardato ma nulla
       // si aggiunge un display none su html in style, ma non glie lo dico io
       // cerco di compensare aggiungendo dinamicamente il comando in html ma è peggio dei cavalli pezzati
       var condizionelorda;
       for (var i = 0; i < circle.length; i++) {
         if (circle.eq(i).hasClass("active")) {
-          $(slide.eq(i)).css("display", "flex")
+          // $(slide.eq(i)).css("display", "flex")
           $(slide.eq(i)).addClass("active");
           condizionelorda = i
         }
